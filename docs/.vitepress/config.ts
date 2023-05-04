@@ -10,7 +10,7 @@ export const sidebar = {
     {
       text: "Введение",
       items: [
-        { text: "Що таке Hangmen?", link: "/guide/introduction/what-is-hangmen" },
+        { text: "Що таке Hangman?", link: "/guide/introduction/what-is-hangman" },
       ]
     },
     {
