@@ -6,5 +6,5 @@ hero:
   actions:
     - theme: brand
       text: Старт
-      link: /guide/
+      link: /guide/introduction/what-is-hangmen
 ---

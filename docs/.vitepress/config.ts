@@ -8,6 +8,12 @@ export const nav = [
 export const sidebar = {
   "/guide/": [
     {
+      text: "Введение",
+      items: [
+        { text: "Що таке Hangmen?", link: "/guide/introduction/what-is-hangmen" },
+      ]
+    },
+    {
       text: "Конфигурация",
       items: [
         { text: "Вступ", link: "/guide/installation/" },
