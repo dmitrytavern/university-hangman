@@ -17,6 +17,15 @@ export const sidebar = {
         { text: "Ведення комітів", link: "/guide/installation/conventional-commits" },
       ],
     },
+    {
+      text: "Скрам",
+      items: [
+        { text: "Вступ", link: "/guide/iterations/" },
+        { text: "Спринт 1", link: "/guide/iterations/sprint-1" },
+        { text: "Спринт 2", link: "/guide/iterations/sprint-2" },
+        { text: "Спринт 3", link: "/guide/iterations/sprint-3" },
+      ],
+    },
   ],
 };
 
