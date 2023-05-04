@@ -6,5 +6,5 @@ hero:
   actions:
     - theme: brand
       text: Старт
-      link: /markdown-examples
+      link: /guide/
 ---
