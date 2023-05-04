@@ -10,6 +10,7 @@ export const sidebar = {
     {
       text: "Конфигурация",
       items: [
+        { text: "Вступ", link: "/guide/installation/" },
         { text: "Налаштування Qt", link: "/guide/installation/qt" },
         { text: "Правила роботи Git", link: "/guide/installation/git" },
         { text: "Стиль коду", link: "/guide/installation/code-style" },
@@ -20,7 +21,7 @@ export const sidebar = {
     {
       text: "Скрам",
       items: [
-        { text: "Вступ", link: "/guide/iterations/" },
+        { text: "Усі спринти", link: "/guide/iterations/" },
         { text: "Спринт 1", link: "/guide/iterations/sprint-1" },
         { text: "Спринт 2", link: "/guide/iterations/sprint-2" },
         { text: "Спринт 3", link: "/guide/iterations/sprint-3" },
