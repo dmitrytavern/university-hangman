@@ -9,9 +9,7 @@ export const sidebar = {
   "/guide/": [
     {
       text: "Введение",
-      items: [
-        { text: "Що таке Hangman?", link: "/guide/introduction/what-is-hangman" },
-      ]
+      items: [{ text: "Що таке Hangman?", link: "/guide/introduction/what-is-hangman" }],
     },
     {
       text: "Конфигурация",
@@ -19,6 +17,7 @@ export const sidebar = {
         { text: "Вступ", link: "/guide/installation/" },
         { text: "Налаштування Qt", link: "/guide/installation/qt" },
         { text: "Правила роботи Git", link: "/guide/installation/git" },
+        { text: "Правила найменування", link: "/guide/installation/conventional-naming.md" },
         { text: "Стиль коду", link: "/guide/installation/code-style" },
         { text: "Ведення гілок", link: "/guide/installation/conventional-branchs" },
         { text: "Ведення комітів", link: "/guide/installation/conventional-commits" },

@@ -4,13 +4,16 @@
 
 ## Правила найменування коммітів
 
-Будь-який коміт розділений на дві частини:
+Будь-який коміт розділений на три частини:
 
 - тип комміту
 - коротке повідомлення комміту
+- номер issue
 
 ```
-<type>: <short summary>
+<type>: <short summary> (#xxx)
+  │           │           │
+  │           │           └─> Номер issue.
   │           │
   │           └─> Підсумок у теперішньому часі.
   |               Без великої літери.
@@ -29,15 +32,17 @@
 - **build**: зміни, які впливають на систему збірки або зовнішні залежності
 - **ci**: зміни в наших конфігураційних файлах і сценаріях CI
 
+Кожен таск має свій issue, тому при створенні коміту потрібно вказувати, до якого issue відносяться зміни.
+
 Приклади:
 
 ```
-fix: fix bug with auth proccess
-fix: add validation to data entering
-feat: add auth logic to start
-docs: update intallation instruction
-build: add create link
-ci: add auto releasing
+fix: fix bug with auth proccess (#1)
+fix: add validation to data entering (#2)
+feat: add auth logic to start (#3)
+docs: update intallation instruction (#3)
+build: add create link (#4)
+ci: add auto releasing (#12)
 ```
 
 ::: info Більше інформації
