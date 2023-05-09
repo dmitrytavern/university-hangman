@@ -4,6 +4,7 @@
 
 - [Налаштування Qt](./qt.md)
 - [Правила роботи Git](./git.md)
+- [Правила найменування](./conventional-naming.md)
 - [Стиль коду](./code-style.md)
 - [Ведення гілок](./conventional-branchs.md)
 - [Ведення комітів](./conventional-commits.md)
