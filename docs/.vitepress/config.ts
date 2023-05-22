@@ -51,6 +51,70 @@ export default defineConfig({
   themeConfig: {
     nav,
     sidebar,
+    logo: "/assets/favicons/android-chrome-192x192.png",
     socialLinks: [{ icon: "github", link: "https://github.com/dmitrytavern/university-hangman" }],
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2023-present Dmitry Tavern",
+    },
   },
+  head: [
+    [
+      "link",
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/university-hangman/assets/favicons/apple-touch-icon.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/university-hangman/assets/favicons/favicon-32x32.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/university-hangman/assets/favicons/favicon-16x16.png",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "manifest",
+        href: "/university-hangman/assets/favicons/site.webmanifest",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "mask-icon",
+        href: "/university-hangman/assets/favicons/safari-pinned-tab.svg",
+        color: "#4B91F1",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "shortcut icon",
+        href: "/university-hangman/assets/favicons/favicon.ico",
+      },
+    ],
+    ["meta", { name: "msapplication-TileColor", content: "#4B91F1" }],
+    [
+      "meta",
+      {
+        name: "msapplication-config",
+        content: "/university-hangman/assets/favicons/browserconfig.xml",
+      },
+    ],
+    ["meta", { name: "theme-color", content: "#F3E8DD" }],
+  ],
 });
