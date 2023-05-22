@@ -32,7 +32,6 @@ export const sidebar = {
         { text: "Усі спринти", link: "/guide/iterations/" },
         { text: "Спринт 1", link: "/guide/iterations/sprint-1" },
         { text: "Спринт 2", link: "/guide/iterations/sprint-2" },
-        { text: "Спринт 3", link: "/guide/iterations/sprint-3" },
       ],
     },
   ],
