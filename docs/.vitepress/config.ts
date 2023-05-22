@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 export const nav = [
   { text: "Головна", link: "/" },
-  { text: "Посібник", link: "/guide/" },
+  { text: "Посібник", link: "/guide/introduction/what-is-hangman" },
 ];
 
 export const sidebar = {
@@ -24,6 +24,14 @@ export const sidebar = {
         { text: "Стиль коду", link: "/guide/installation/code-style" },
         { text: "Ведення гілок", link: "/guide/installation/conventional-branchs" },
         { text: "Ведення комітів", link: "/guide/installation/conventional-commits" },
+      ],
+    },
+    {
+      text: "Розробка",
+      items: [
+        { text: "Дизайн", link: "/guide/development/design" },
+        { text: "Архітектура", link: "/guide/development/architecture" },
+        { text: "Технічне завдання", link: "/guide/development/technical-requirements" },
       ],
     },
     {
