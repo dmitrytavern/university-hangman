@@ -18,4 +18,12 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-add_subdirectory(src)
+include_directories(${PROJECT_BINARY_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/src)
+
+add_subdirectory(src/app)
+add_subdirectory(src/widgets/homewidget)
+add_subdirectory(src/widgets/aboutwidget)
+add_subdirectory(src/widgets/gamewidget)
+add_subdirectory(src/widgets/gamestartwidget)
+add_subdirectory(src/widgets/gameoverwidget)

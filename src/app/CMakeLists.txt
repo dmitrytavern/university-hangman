@@ -1,8 +1,6 @@
 set(PROJECT_SOURCES
   main.cpp
   mainwindow.cpp
-  mainwindow.h
-  mainwindow.ui
 )
 
 qt_add_executable(Hangman
@@ -12,6 +10,11 @@ qt_add_executable(Hangman
 
 target_link_libraries(Hangman 
   PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+  HomeWidget
+  AboutWidget
+  GameWidget
+  GameStartWidget
+  GameOverWidget
 )
 
 set_target_properties(Hangman PROPERTIES
