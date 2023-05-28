@@ -14,7 +14,7 @@ target_link_libraries(Hangman
   AboutWidget
   GameWidget
   GameStartWidget
-  GameOverWidget
+  GameOverWidget  
 )
 
 set_target_properties(Hangman PROPERTIES

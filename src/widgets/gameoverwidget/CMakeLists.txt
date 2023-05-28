@@ -1,7 +1,7 @@
 set(LIBRARY_NAME GameOverWidget)
 
 add_library(${LIBRARY_NAME} STATIC
-  gameoverwidget.cpp
+  gameoverwidget.cpp  
 )
 
 target_link_libraries(${LIBRARY_NAME}
