@@ -4,8 +4,14 @@ set(PROJECT_SOURCES
 )
 
 qt_add_executable(Hangman
-  MANUAL_FINALIZATION
+  MANUAL_FINALIZATION  
   ${PROJECT_SOURCES}
+)
+
+qt_add_resources(Hangman "app_images"
+    PREFIX "/"
+    FILES
+        ../../resources/BGGameStartWidget.png
 )
 
 target_link_libraries(Hangman 
@@ -15,6 +21,7 @@ target_link_libraries(Hangman
   GameWidget
   GameStartWidget
   GameOverWidget  
+  ComponentStyle
 )
 
 set_target_properties(Hangman PROPERTIES
