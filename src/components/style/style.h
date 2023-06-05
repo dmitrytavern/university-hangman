@@ -14,6 +14,8 @@ public:
     static QString GetTitleStyle();
     static QString GetlRequestStyle();
     static QString GetEditStyle();
+    static QString GetLetterButtonStyle();
+
 };
 
 #endif // STYLE_H

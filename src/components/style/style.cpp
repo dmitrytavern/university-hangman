@@ -68,3 +68,14 @@ QString Style::GetEditStyle() {
                  "background-repeat: no-repeat;"
                  "}"};
 }
+
+QString Style::GetLetterButtonStyle() {
+  return QString{"QPushButton {"
+                 "width: 60px;"
+                 "height: 60px;"
+                 "background: none;"
+                 "font-size: 50px;"
+                 "color: rgba(240, 231, 222, 1);"
+                 "border: none;"
+                 "}"};
+}
