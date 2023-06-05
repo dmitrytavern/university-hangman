@@ -12,6 +12,9 @@ qt_add_resources(Hangman "app_images"
     PREFIX "/"
     FILES
         ../../resources/BGGameStartWidget.png
+        ../../resources/user.svg
+        ../../resources/BerkshireSwash-Regular.ttf
+        ../../resources/Montserrat-VariableFont_wght.ttf
 )
 
 target_link_libraries(Hangman 
