@@ -15,6 +15,8 @@ qt_add_resources(Hangman "app_images"
         ../../resources/user.svg
         ../../resources/BerkshireSwash-Regular.ttf
         ../../resources/Montserrat-VariableFont_wght.ttf
+
+        ../../resources/1.png
 )
 
 target_link_libraries(Hangman 
@@ -25,6 +27,7 @@ target_link_libraries(Hangman
   GameStartWidget
   GameOverWidget  
   ComponentStyle
+  GameController
 )
 
 set_target_properties(Hangman PROPERTIES

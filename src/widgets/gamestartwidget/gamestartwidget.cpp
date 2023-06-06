@@ -1,4 +1,5 @@
 #include "gamestartwidget.h"
+#include "../../components/controller/gamecontroller.h"
 #include "../../components/style/style.h"
 #include <QLineEdit>
 
@@ -60,6 +61,9 @@ GameStartWidget::GameStartWidget() : QWidget() {
   connect(homeButton, &QPushButton::clicked, this,
           [=, this]() { emit GoToHome(); });
 
-  connect(gameButton, &QPushButton::clicked, this,
-          [=, this]() { emit GoToGame(); });
+  connect(gameButton, &QPushButton::clicked, this, [=, this]() {
+    GameController::nameOfPlayer1 = editNameOfPlayer1->text();
+    GameController::nameOfPlayer2 = editNameOfPlayer2->text();
+    emit GoToGame();
+  });
 }
