@@ -2,7 +2,9 @@
 #define GameController_H
 
 #include <QString>
+#include <QPushButton>
 #include <vector>
+
 class GameController
 {
 public:
@@ -15,7 +17,9 @@ public:
     static inline std::vector<QString> arrayOfErrorsFor2;
     static inline std::vector<QString> arrayOfCorectnessFor1;
     static inline std::vector<QString> arrayOfCorectnessFor2;
+    static inline QList<QPushButton *> alphabetButtons;
     static inline int currentPlayer = 1;
+    static void HiglightLetters(std::vector<QString> arrayOfCorectness, std::vector<QString> arrayOfErrors);
     static void CheckMove(QString letter, QString word,
                           std::vector<QString> *arrayOfCorectness,
                           std::vector<QString> *arrayOfErrors);

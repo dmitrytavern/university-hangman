@@ -75,7 +75,29 @@ QString Style::GetLetterButtonStyle() {
                  "height: 60px;"
                  "background: none;"
                  "font-size: 50px;"
-                 "color: rgba(240, 231, 222, 1);"
+                 "color: rgba(240, 231, 222, 0.75);"
                  "border: none;"
+                 "}"};
+}
+
+QString Style::GetCorrectLetterButtonStyle() {
+  return QString{"QPushButton {"
+                 "color: rgba(240, 231, 222, 1);"
+                 "width: 60px;"
+                 "height: 60px;"
+                 "background: none;"
+                 "font-size: 50px;"
+                 "border: none;"
+                 "}"};
+}
+
+QString Style::GetWrongLetterButtonStyle() {
+  return QString{"QPushButton {"
+                 "width: 60px;"
+                 "height: 60px;"
+                 "background: none;"
+                 "font-size: 50px;"
+                 "border: none;"
+                 "color: rgba(240, 231, 222, 0.5);"
                  "}"};
 }

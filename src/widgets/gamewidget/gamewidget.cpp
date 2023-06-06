@@ -4,15 +4,7 @@
 
 GameWidget::GameWidget() : QWidget() {
   QVBoxLayout *layout = new QVBoxLayout(this);
-
-  QList<QPushButton *> alphabetButtons;
   QPushButton *letterButton;
-
-  //
-  QLabel *label = new QLabel("Game Widget");
-  layout->addWidget(label);
-  //
-
   QHBoxLayout *layoutAlphabetAndPicture = new QHBoxLayout(this);
 
   QGridLayout *alphabetLayout = new QGridLayout(this);
@@ -27,7 +19,7 @@ GameWidget::GameWidget() : QWidget() {
       emit GameController::ClickLetter(letterButton->text());
     });
     alphabetLayout->addWidget(letterButton, row, col);
-    alphabetButtons.push_back(letterButton);
+    GameController::alphabetButtons.push_back(letterButton);
     col++;
     if (col >= 7) {
       col = 0;
