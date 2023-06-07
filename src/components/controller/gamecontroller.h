@@ -9,10 +9,13 @@ class GameController
 {
 public:
     GameController();
+    static inline QString champion = "null";
     static inline QString nameOfPlayer1;
     static inline QString nameOfPlayer2;
-    static inline QString wordForPLayer1 = "QWERT";
+    static inline QString wordForPLayer1 = "QWE";
     static inline QString wordForPLayer2 = "ASDFG";
+    static inline int amountOfErrorsForPlayer1 = 0;
+    static inline int amountOfErrorsForPlayer2 = 0;
     static inline std::vector<QString> arrayOfErrorsFor1;
     static inline std::vector<QString> arrayOfErrorsFor2;
     static inline std::vector<QString> arrayOfCorectnessFor1;
@@ -22,10 +25,16 @@ public:
     static void HiglightLetters(std::vector<QString> arrayOfCorectness, std::vector<QString> arrayOfErrors);
     static void CheckMove(QString letter, QString word,
                           std::vector<QString> *arrayOfCorectness,
-                          std::vector<QString> *arrayOfErrors);
+                          std::vector<QString> *arrayOfErrors, int &amountOfErrorsForPlayer);
+    static void CheckTheChampion();
+    static void ToWinGame(std::vector<QString> arrayOfCorectness, QString word);
+    static void ToLoseGame(std::vector<QString> arrayOfErrors);
 public slots:
     static void ClickLetter(QString letter);
     static void Next();
+
+    static inline QPushButton *gameoverButton;// = new QPushButton("Finish");
+    static inline QPushButton *nextButton;// = new QPushButton("Next");
 };
 
 #endif // STYLE_H

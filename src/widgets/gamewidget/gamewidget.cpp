@@ -40,23 +40,28 @@ GameWidget::GameWidget() : QWidget() {
 
   QHBoxLayout *layoutButtons = new QHBoxLayout(this);
 
-  QPushButton *gameoverButton = new QPushButton("Give Up");
-  gameoverButton->setStyleSheet(Style::GetButtonStyle());
-  gameoverButton->setFont(Style::GetBerkshireSwash());
-  gameoverButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  GameController::gameoverButton = new QPushButton("Finish");
+  GameController::gameoverButton->setStyleSheet(Style::GetButtonStyle());
+  GameController::gameoverButton->setFont(Style::GetBerkshireSwash());
+  GameController::gameoverButton->setSizePolicy(QSizePolicy::Fixed,
+                                                QSizePolicy::Fixed);
 
-  QPushButton *nextButton = new QPushButton("Next");
-  nextButton->setStyleSheet(Style::GetButtonStyle());
-  nextButton->setFont(Style::GetBerkshireSwash());
-  nextButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  GameController::nextButton = new QPushButton("Next");
+  GameController::nextButton->setStyleSheet(Style::GetButtonStyle());
+  GameController::nextButton->setFont(Style::GetBerkshireSwash());
+  GameController::nextButton->setSizePolicy(QSizePolicy::Fixed,
+                                            QSizePolicy::Fixed);
 
-  layoutButtons->addWidget(gameoverButton);
-  layoutButtons->addWidget(nextButton);
+  layoutButtons->addWidget(GameController::gameoverButton);
+  layoutButtons->addWidget(GameController::nextButton);
 
   layout->addLayout(layoutAlphabetAndPicture);
   layout->addLayout(layoutButtons);
   layout->setAlignment(Qt::AlignCenter);
 
-  connect(gameoverButton, &QPushButton::clicked, this,
+  connect(GameController::gameoverButton, &QPushButton::clicked, this,
           [=, this]() { emit GoToGameOver(); });
+
+  connect(GameController::nextButton, &QPushButton::clicked, this,
+          [=, this]() { emit GameController::Next(); });
 }

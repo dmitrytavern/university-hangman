@@ -75,7 +75,7 @@ QString Style::GetLetterButtonStyle() {
                  "height: 60px;"
                  "background: none;"
                  "font-size: 50px;"
-                 "color: rgba(240, 231, 222, 0.75);"
+                 "color: rgba(240, 231, 222, 0.6);"
                  "border: none;"
                  "}"};
 }
@@ -98,6 +98,6 @@ QString Style::GetWrongLetterButtonStyle() {
                  "background: none;"
                  "font-size: 50px;"
                  "border: none;"
-                 "color: rgba(240, 231, 222, 0.5);"
+                 "color: rgba(240, 231, 222, 0.2);"
                  "}"};
 }
