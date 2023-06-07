@@ -114,6 +114,8 @@ void GameController::ClickLetter(QString letter) {
     ToWinGame(arrayOfCorectnessFor2, wordForPLayer2);
     ToLoseGame(arrayOfErrorsFor2);
   }
+
+  CheckTheChampion();
   //
   qDebug() << letter;
   qDebug() << arrayOfCorectnessFor1;
@@ -132,5 +134,4 @@ void GameController::Next() {
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
   }
   nextButton->setEnabled(false);
-  CheckTheChampion();
 }
