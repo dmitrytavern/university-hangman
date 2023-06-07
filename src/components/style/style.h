@@ -12,6 +12,8 @@ public:
     static QString GetBG();
     static QString GetButtonStyle();
     static QString GetTitleStyle();
+    static QString GetAboutDevTitleStyle();
+    static QString GetDevNameStyle();
     static QString GetlRequestStyle();
     static QString GetEditStyle();
     static QString GetLetterButtonStyle();

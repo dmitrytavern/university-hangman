@@ -27,6 +27,22 @@ QString Style::GetTitleStyle() {
                  "}"};
 }
 
+QString Style::GetAboutDevTitleStyle() {
+  return QString{"QLabel {"
+                 "color: rgba(255, 255, 255, 1);"
+                 "font-size: 85px;"
+                 "margin-top: 45px;"
+                 "}"};
+}
+
+QString Style::GetDevNameStyle() {
+  return QString{"QLabel {"
+                 "color: rgba(255, 255, 255, 1);"
+                 "font-size: 40px;"
+                 "margin-top: 10px;"
+                 "}"};
+}
+
 QString Style::GetlRequestStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
