@@ -17,19 +17,23 @@ public:
     static inline QString wordForPLayer1 = "QQWET";
     static inline QString wordForPLayer2 = "AS";
     static inline int amountOfErrorsForPlayer1 = 0;
+    static inline int amountOfCorectnessForPlayer1 = 0;
     static inline int amountOfErrorsForPlayer2 = 0;
+    static inline int amountOfCorectnessForPlayer2 = 0;
     static inline std::vector<QString> arrayOfErrorsFor1;
     static inline std::vector<QString> arrayOfErrorsFor2;
     static inline std::vector<QString> arrayOfCorectnessFor1;
     static inline std::vector<QString> arrayOfCorectnessFor2;
     static inline QList<QPushButton *> alphabetButtons;
     static inline int currentPlayer = 1;
+    static void AddAmountOfCorectness(QString letter, QString word,
+                                      int &amountOfCorectness);
     static void HiglightLetters(std::vector<QString> arrayOfCorectness, std::vector<QString> arrayOfErrors);
     static void CheckMove(QString letter, QString word,
                           std::vector<QString> *arrayOfCorectness,
-                          std::vector<QString> *arrayOfErrors, int &amountOfErrorsForPlayer);
+                          std::vector<QString> *arrayOfErrors, int &amountOfErrorsForPlayer, int &amountOfCorectness);
     static void CheckTheChampion();
-    static void ToWinGame(std::vector<QString> arrayOfCorectness, QString word);
+    static void ToWinGame(int amountOfCorectness, QString word);
     static void ToLoseGame(std::vector<QString> arrayOfErrors);
     static void ResetGame();
     static void MakeActiveAlphabetButtons();

@@ -5,6 +5,14 @@
 
 GameController::GameController() {}
 
+void GameController::AddAmountOfCorectness(QString letter, QString word,
+                                           int &amountOfCorectness) {
+  for (int i = 0; i < word.size(); i++) {
+    if (letter == word[i])
+      amountOfCorectness++;
+  }
+}
+
 void GameController::MakeActiveAlphabetButtons() {
   for (int i = 0; i < alphabetButtons.size(); i++)
     alphabetButtons[i]->setEnabled(true);
@@ -24,7 +32,6 @@ void GameController::ShowWord(std::vector<QString> arrayOfCorectness,
   QString text;
   for (int i = 0; i < word.size(); i++) {
     bool is = false;
-    QLabel *label;
     for (int j = 0; j < arrayOfCorectness.size(); j++) {
       if (word[i] == arrayOfCorectness[j]) {
         text.append("  ");
@@ -70,9 +77,11 @@ void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
 void GameController::CheckMove(QString letter, QString word,
                                std::vector<QString> *arrayOfCorectness,
                                std::vector<QString> *arrayOfErrors,
-                               int &amountOfErrorsForPlayer) {
+                               int &amountOfErrorsForPlayer,
+                               int &amountOfCorectness) {
   for (int i = 0; i < word.size(); i++) {
     if (letter == word[i]) {
+      AddAmountOfCorectness(letter, word, amountOfCorectness);
       arrayOfCorectness->push_back(letter);
       return;
     }
@@ -95,9 +104,8 @@ void GameController::CheckTheChampion() {
   }
 }
 
-void GameController::ToWinGame(std::vector<QString> arrayOfCorectness,
-                               QString word) {
-  if (arrayOfCorectness.size() == word.size()) {
+void GameController::ToWinGame(int amountOfCorectness, QString word) {
+  if (amountOfCorectness == word.size()) {
     champion = currentPlayer == 1 ? nameOfPlayer1 : nameOfPlayer2;
   }
 }
@@ -115,7 +123,9 @@ void GameController::ResetGame() {
   wordForPLayer2 = "ASD";
 
   amountOfErrorsForPlayer1 = 0;
+  amountOfCorectnessForPlayer1 = 0;
   amountOfErrorsForPlayer2 = 0;
+  amountOfCorectnessForPlayer2 = 0;
 
   arrayOfErrorsFor1.clear();
   arrayOfErrorsFor2.clear();
@@ -140,26 +150,28 @@ void GameController::ResetGame() {
 void GameController::ClickLetter(QString letter) {
   if (currentPlayer == 1) {
     CheckMove(letter, wordForPLayer1, &arrayOfCorectnessFor1,
-              &arrayOfErrorsFor1, amountOfErrorsForPlayer1);
+              &arrayOfErrorsFor1, amountOfErrorsForPlayer1,
+              amountOfCorectnessForPlayer1);
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
 
     ChangePicture(amountOfErrorsForPlayer1);
 
     ShowWord(arrayOfCorectnessFor1, wordForPLayer1);
 
-    ToWinGame(arrayOfCorectnessFor1, wordForPLayer1);
+    ToWinGame(amountOfCorectnessForPlayer1, wordForPLayer1);
     ToLoseGame(arrayOfErrorsFor1);
 
   } else {
     CheckMove(letter, wordForPLayer2, &arrayOfCorectnessFor2,
-              &arrayOfErrorsFor2, amountOfErrorsForPlayer2);
+              &arrayOfErrorsFor2, amountOfErrorsForPlayer2,
+              amountOfCorectnessForPlayer2);
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
 
     ChangePicture(amountOfErrorsForPlayer2);
 
     ShowWord(arrayOfCorectnessFor2, wordForPLayer2);
 
-    ToWinGame(arrayOfCorectnessFor2, wordForPLayer2);
+    ToWinGame(amountOfCorectnessForPlayer2, wordForPLayer2);
     ToLoseGame(arrayOfErrorsFor2);
   }
   CheckTheChampion();
