@@ -38,14 +38,10 @@ public:
     static inline QPushButton *gameoverButton;
     static inline QPushButton *nextButton;
     static inline QLabel *picture;
-
     static inline QLabel *usernameLabel;
     static inline QLabel *wordLabel;
-    //static inline QList<QLabel *> wordLabels;
     static void ShowWord(std::vector<QString> arrayOfCorectness, QString word);
-
     static void SetUsername();
-    //static inline QHBoxLayout *wordLabelsLayout;
 
 public slots:
     static void ClickLetter(QString letter);

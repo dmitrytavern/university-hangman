@@ -27,14 +27,14 @@ void GameController::ShowWord(std::vector<QString> arrayOfCorectness,
     QLabel *label;
     for (int j = 0; j < arrayOfCorectness.size(); j++) {
       if (word[i] == arrayOfCorectness[j]) {
-        text.append(" ");
+        text.append("  ");
         text.append(word[i]);
-        text.append(" ");
+        text.append("  ");
         is = true;
       }
     }
     if (!is) {
-      text.append(" _ ");
+      text.append(" __ ");
     }
     wordLabel->setText(text);
   }
