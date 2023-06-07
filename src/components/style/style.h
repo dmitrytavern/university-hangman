@@ -19,6 +19,7 @@ public:
     static QString GetLetterButtonStyle();
     static QString GetCorrectLetterButtonStyle();
     static QString GetWrongLetterButtonStyle();
+    static QString GetPictureStyle(int i);
 };
 
 #endif // STYLE_H

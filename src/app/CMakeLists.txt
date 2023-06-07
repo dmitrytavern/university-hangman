@@ -15,8 +15,14 @@ qt_add_resources(Hangman "app_images"
         ../../resources/user.svg
         ../../resources/BerkshireSwash-Regular.ttf
         ../../resources/Montserrat-VariableFont_wght.ttf
-
-        ../../resources/1.png
+        ../../resources/Hangman_1.svg
+        ../../resources/Hangman_2.svg
+        ../../resources/Hangman_3.svg
+        ../../resources/Hangman_4.svg
+        ../../resources/Hangman_5.svg
+        ../../resources/Hangman_6.svg
+        ../../resources/Hangman_7.svg
+        ../../resources/Hangman_8.svg
 )
 
 target_link_libraries(Hangman 

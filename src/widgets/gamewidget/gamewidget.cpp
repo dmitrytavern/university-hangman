@@ -32,11 +32,31 @@ GameWidget::GameWidget() : QWidget() {
   alphabetLayout->columnStretch(0);
   alphabetLayout->rowStretch(0);
 
-  QLabel *picture = new QLabel(this);
-  picture->setStyleSheet("image: url(../resources/1.png); height: 300px;");
+  GameController::picture = new QLabel(this);
+  GameController::picture->setSizePolicy(QSizePolicy::Fixed,
+                                         QSizePolicy::Fixed);
+  GameController::picture->setStyleSheet(Style::GetPictureStyle(1));
 
   layoutAlphabetAndPicture->addLayout(alphabetLayout);
-  layoutAlphabetAndPicture->addWidget(picture);
+  layoutAlphabetAndPicture->addWidget(GameController::picture);
+  layoutAlphabetAndPicture->setSpacing(150);
+
+  //
+  QHBoxLayout *layoutUsernameAndLettersOfWord = new QHBoxLayout(this);
+  GameController::usernameLabel = new QLabel(this);
+  GameController::usernameLabel->setText(GameController::nameOfPlayer1);
+  GameController::usernameLabel->setStyleSheet(Style::GetlRequestStyle());
+  GameController::usernameLabel->setFont(Style::GetBerkshireSwash());
+
+  GameController::wordLabel = new QLabel();
+  GameController::wordLabel->setStyleSheet(Style::GetlRequestStyle());
+  GameController::wordLabel->setFont(Style::GetBerkshireSwash());
+
+  layoutUsernameAndLettersOfWord->addWidget(GameController::usernameLabel);
+  layoutUsernameAndLettersOfWord->addWidget(GameController::wordLabel);
+  layoutUsernameAndLettersOfWord->setAlignment(Qt::AlignCenter);
+  layoutUsernameAndLettersOfWord->setSpacing(50);
+  layoutUsernameAndLettersOfWord->setContentsMargins(0, 0, 0, 50);
 
   QHBoxLayout *layoutButtons = new QHBoxLayout(this);
 
@@ -58,6 +78,7 @@ GameWidget::GameWidget() : QWidget() {
   layoutButtons->addWidget(GameController::nextButton);
 
   layout->addLayout(layoutAlphabetAndPicture);
+  layout->addLayout(layoutUsernameAndLettersOfWord);
   layout->addLayout(layoutButtons);
   layout->setAlignment(Qt::AlignCenter);
 

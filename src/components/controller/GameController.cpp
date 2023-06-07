@@ -15,8 +15,41 @@ void GameController::MakeInertAlphabetButtons() {
     alphabetButtons[i]->setEnabled(false);
 }
 
+void GameController::ChangePicture(int amountOfErrorsForPlayer) {
+  picture->setStyleSheet(Style::GetPictureStyle(amountOfErrorsForPlayer + 1));
+}
+
+void GameController::ShowWord(std::vector<QString> arrayOfCorectness,
+                              QString word) {
+  QString text;
+  for (int i = 0; i < word.size(); i++) {
+    bool is = false;
+    QLabel *label;
+    for (int j = 0; j < arrayOfCorectness.size(); j++) {
+      if (word[i] == arrayOfCorectness[j]) {
+        text.append("  ");
+        text.append(word[i]);
+        text.append("  ");
+        is = true;
+      }
+    }
+    if (!is) {
+      text.append(" __ ");
+    }
+    wordLabel->setText(text);
+  }
+}
+
+void GameController::SetUsername() {
+  if (currentPlayer == 1)
+    usernameLabel->setText(nameOfPlayer1);
+  else
+    usernameLabel->setText(nameOfPlayer2);
+}
+
 void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
                                      std::vector<QString> arrayOfErrors) {
+
   for (int i = 0; i < alphabetButtons.size(); i++) {
     alphabetButtons[i]->setStyleSheet(Style::GetLetterButtonStyle());
     for (int j = 0; j < arrayOfCorectness.size(); j++) {
@@ -90,11 +123,15 @@ void GameController::ResetGame() {
   arrayOfCorectnessFor1.clear();
   arrayOfCorectnessFor2.clear();
 
+  ChangePicture(0);
+
   for (int i = 0; i < alphabetButtons.size(); i++)
     alphabetButtons[i]->setEnabled(true);
 
   currentPlayer = 1;
+  SetUsername();
   HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+  ShowWord(arrayOfCorectnessFor1, wordForPLayer1);
 
   gameoverButton->setEnabled(false);
   nextButton->setEnabled(false);
@@ -105,24 +142,27 @@ void GameController::ClickLetter(QString letter) {
     CheckMove(letter, wordForPLayer1, &arrayOfCorectnessFor1,
               &arrayOfErrorsFor1, amountOfErrorsForPlayer1);
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+
+    ChangePicture(amountOfErrorsForPlayer1);
+
+    ShowWord(arrayOfCorectnessFor1, wordForPLayer1);
+
     ToWinGame(arrayOfCorectnessFor1, wordForPLayer1);
     ToLoseGame(arrayOfErrorsFor1);
+
   } else {
     CheckMove(letter, wordForPLayer2, &arrayOfCorectnessFor2,
               &arrayOfErrorsFor2, amountOfErrorsForPlayer2);
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
+
+    ChangePicture(amountOfErrorsForPlayer2);
+
+    ShowWord(arrayOfCorectnessFor2, wordForPLayer2);
+
     ToWinGame(arrayOfCorectnessFor2, wordForPLayer2);
     ToLoseGame(arrayOfErrorsFor2);
   }
-
   CheckTheChampion();
-  //
-  qDebug() << letter;
-  qDebug() << arrayOfCorectnessFor1;
-  qDebug() << arrayOfErrorsFor1;
-  qDebug() << amountOfErrorsForPlayer1;
-  qDebug() << amountOfErrorsForPlayer2;
-  //
 }
 
 void GameController::Next() {
@@ -130,8 +170,13 @@ void GameController::Next() {
   MakeActiveAlphabetButtons();
   if (currentPlayer == 1) {
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+    ChangePicture(amountOfErrorsForPlayer1);
+    ShowWord(arrayOfCorectnessFor1, wordForPLayer1);
   } else {
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
+    ChangePicture(amountOfErrorsForPlayer2);
+    ShowWord(arrayOfCorectnessFor2, wordForPLayer2);
   }
+  SetUsername();
   nextButton->setEnabled(false);
 }
