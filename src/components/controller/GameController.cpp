@@ -19,6 +19,13 @@ void GameController::ChangePicture(int amountOfErrorsForPlayer) {
   picture->setStyleSheet(Style::GetPictureStyle(amountOfErrorsForPlayer + 1));
 }
 
+void GameController::SetUsername() {
+  if (currentPlayer == 1)
+    usernameLabel->setText(nameOfPlayer1);
+  else
+    usernameLabel->setText(nameOfPlayer2);
+}
+
 void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
                                      std::vector<QString> arrayOfErrors) {
 
@@ -101,6 +108,7 @@ void GameController::ResetGame() {
     alphabetButtons[i]->setEnabled(true);
 
   currentPlayer = 1;
+  SetUsername();
   HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
 
   gameoverButton->setEnabled(false);
@@ -148,5 +156,6 @@ void GameController::Next() {
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
     ChangePicture(amountOfErrorsForPlayer2);
   }
+  SetUsername();
   nextButton->setEnabled(false);
 }

@@ -41,6 +41,17 @@ GameWidget::GameWidget() : QWidget() {
   layoutAlphabetAndPicture->addWidget(GameController::picture);
   layoutAlphabetAndPicture->setSpacing(150);
 
+  QHBoxLayout *layoutUsernameAndLettersOfWord = new QHBoxLayout(this);
+
+  GameController::usernameLabel = new QLabel(this);
+  GameController::usernameLabel->setText(GameController::nameOfPlayer1);
+
+  GameController::usernameLabel->setStyleSheet(Style::GetlRequestStyle());
+  GameController::usernameLabel->setFont(Style::GetBerkshireSwash());
+
+  layoutUsernameAndLettersOfWord->addWidget(GameController::usernameLabel);
+  layoutUsernameAndLettersOfWord->setAlignment(Qt::AlignCenter);
+
   QHBoxLayout *layoutButtons = new QHBoxLayout(this);
 
   GameController::gameoverButton = new QPushButton("Finish");
@@ -61,6 +72,7 @@ GameWidget::GameWidget() : QWidget() {
   layoutButtons->addWidget(GameController::nextButton);
 
   layout->addLayout(layoutAlphabetAndPicture);
+  layout->addLayout(layoutUsernameAndLettersOfWord);
   layout->addLayout(layoutButtons);
   layout->setAlignment(Qt::AlignCenter);
 

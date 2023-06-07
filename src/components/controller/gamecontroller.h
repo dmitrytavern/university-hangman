@@ -37,6 +37,12 @@ public:
     static inline QPushButton *gameoverButton;
     static inline QPushButton *nextButton;
     static inline QLabel *picture;
+
+    static inline QLabel *usernameLabel;
+    static inline QList<QLabel *> wordLabels1;
+    static inline QList<QLabel *> wordLabels2;
+
+    static void SetUsername();
 public slots:
     static void ClickLetter(QString letter);
     static void Next();

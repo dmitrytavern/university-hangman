@@ -62,8 +62,11 @@ GameStartWidget::GameStartWidget() : QWidget() {
           [=, this]() { emit GoToHome(); });
 
   connect(gameButton, &QPushButton::clicked, this, [=, this]() {
-    GameController::nameOfPlayer1 = editNameOfPlayer1->text();
-    GameController::nameOfPlayer2 = editNameOfPlayer2->text();
+    if (editNameOfPlayer1->text().size() && editNameOfPlayer2->text().size()) {
+      GameController::nameOfPlayer1 = editNameOfPlayer1->text();
+      GameController::nameOfPlayer2 = editNameOfPlayer2->text();
+      GameController::SetUsername();
+    }
     emit GoToGame();
   });
 }
