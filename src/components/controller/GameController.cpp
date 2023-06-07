@@ -95,6 +95,8 @@ void GameController::ResetGame() {
   arrayOfCorectnessFor1.clear();
   arrayOfCorectnessFor2.clear();
 
+  ChangePicture(0);
+
   for (int i = 0; i < alphabetButtons.size(); i++)
     alphabetButtons[i]->setEnabled(true);
 
