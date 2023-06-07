@@ -15,8 +15,13 @@ void GameController::MakeInertAlphabetButtons() {
     alphabetButtons[i]->setEnabled(false);
 }
 
+void GameController::ChangePicture(int amountOfErrorsForPlayer) {
+  picture->setStyleSheet(Style::GetPictureStyle(amountOfErrorsForPlayer + 1));
+}
+
 void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
                                      std::vector<QString> arrayOfErrors) {
+
   for (int i = 0; i < alphabetButtons.size(); i++) {
     alphabetButtons[i]->setStyleSheet(Style::GetLetterButtonStyle());
     for (int j = 0; j < arrayOfCorectness.size(); j++) {
@@ -105,12 +110,18 @@ void GameController::ClickLetter(QString letter) {
     CheckMove(letter, wordForPLayer1, &arrayOfCorectnessFor1,
               &arrayOfErrorsFor1, amountOfErrorsForPlayer1);
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+
+    ChangePicture(amountOfErrorsForPlayer1);
+
     ToWinGame(arrayOfCorectnessFor1, wordForPLayer1);
     ToLoseGame(arrayOfErrorsFor1);
   } else {
     CheckMove(letter, wordForPLayer2, &arrayOfCorectnessFor2,
               &arrayOfErrorsFor2, amountOfErrorsForPlayer2);
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
+
+    ChangePicture(amountOfErrorsForPlayer2);
+
     ToWinGame(arrayOfCorectnessFor2, wordForPLayer2);
     ToLoseGame(arrayOfErrorsFor2);
   }
@@ -130,8 +141,10 @@ void GameController::Next() {
   MakeActiveAlphabetButtons();
   if (currentPlayer == 1) {
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+    ChangePicture(amountOfErrorsForPlayer1);
   } else {
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
+    ChangePicture(amountOfErrorsForPlayer2);
   }
   nextButton->setEnabled(false);
 }

@@ -32,11 +32,14 @@ GameWidget::GameWidget() : QWidget() {
   alphabetLayout->columnStretch(0);
   alphabetLayout->rowStretch(0);
 
-  QLabel *picture = new QLabel(this);
-  picture->setStyleSheet("image: url(../resources/1.png); height: 300px;");
+  GameController::picture = new QLabel(this);
+  GameController::picture->setSizePolicy(QSizePolicy::Fixed,
+                                         QSizePolicy::Fixed);
+  GameController::picture->setStyleSheet(Style::GetPictureStyle(1));
 
   layoutAlphabetAndPicture->addLayout(alphabetLayout);
-  layoutAlphabetAndPicture->addWidget(picture);
+  layoutAlphabetAndPicture->addWidget(GameController::picture);
+  layoutAlphabetAndPicture->setSpacing(150);
 
   QHBoxLayout *layoutButtons = new QHBoxLayout(this);
 

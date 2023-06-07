@@ -2,6 +2,7 @@
 #define GameController_H
 
 #include <QString>
+#include <QLabel>
 #include <QPushButton>
 #include <vector>
 
@@ -10,8 +11,8 @@ class GameController
 public:
     GameController();
     static inline QString champion = "null";
-    static inline QString nameOfPlayer1;
-    static inline QString nameOfPlayer2;
+    static inline QString nameOfPlayer1 = "Player 1";
+    static inline QString nameOfPlayer2 = "Player 2";;
     static inline QString wordForPLayer1 = "QWE";
     static inline QString wordForPLayer2 = "ASD";
     static inline int amountOfErrorsForPlayer1 = 0;
@@ -32,8 +33,10 @@ public:
     static void ResetGame();
     static void MakeActiveAlphabetButtons();
     static void MakeInertAlphabetButtons();
+    static void ChangePicture(int amountOfErrorsForPlayer);
     static inline QPushButton *gameoverButton;
     static inline QPushButton *nextButton;
+    static inline QLabel *picture;
 public slots:
     static void ClickLetter(QString letter);
     static void Next();

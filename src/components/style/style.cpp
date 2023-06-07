@@ -101,3 +101,12 @@ QString Style::GetWrongLetterButtonStyle() {
                  "color: rgba(240, 231, 222, 0.2);"
                  "}"};
 }
+
+QString Style::GetPictureStyle(int i) {
+  return QString{"QLabel {"
+                 "min-height: 350px; min-width: 350px; "
+                 "image: url(../resources/Hangman_" +
+                 QString::number(i) +
+                 ".svg);"
+                 "}"};
+}
