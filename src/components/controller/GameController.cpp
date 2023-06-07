@@ -5,11 +5,20 @@
 
 GameController::GameController() {}
 
+void GameController::MakeActiveAlphabetButtons() {
+  for (int i = 0; i < alphabetButtons.size(); i++)
+    alphabetButtons[i]->setEnabled(true);
+}
+
+void GameController::MakeInertAlphabetButtons() {
+  for (int i = 0; i < alphabetButtons.size(); i++)
+    alphabetButtons[i]->setEnabled(false);
+}
+
 void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
                                      std::vector<QString> arrayOfErrors) {
   for (int i = 0; i < alphabetButtons.size(); i++) {
     alphabetButtons[i]->setStyleSheet(Style::GetLetterButtonStyle());
-    alphabetButtons[i]->setEnabled(true);
     for (int j = 0; j < arrayOfCorectness.size(); j++) {
       if (alphabetButtons[i]->text() == arrayOfCorectness[j]) {
         alphabetButtons[i]->setStyleSheet(Style::GetCorrectLetterButtonStyle());
@@ -37,8 +46,11 @@ void GameController::CheckMove(QString letter, QString word,
   }
   amountOfErrorsForPlayer++;
   arrayOfErrors->push_back(letter);
+
   for (int i = 0; i < alphabetButtons.size(); i++)
     alphabetButtons[i]->setEnabled(false);
+
+  nextButton->setEnabled(true);
 }
 
 void GameController::CheckTheChampion() {
@@ -61,6 +73,31 @@ void GameController::ToLoseGame(std::vector<QString> arrayOfErrors) {
   if (arrayOfErrors.size() == 7) {
     champion = currentPlayer == 1 ? nameOfPlayer2 : nameOfPlayer1;
   }
+}
+
+void GameController::ResetGame() {
+  champion = "null";
+
+  wordForPLayer1 = "QWE";
+  wordForPLayer2 = "ASD";
+
+  amountOfErrorsForPlayer1 = 0;
+  amountOfErrorsForPlayer2 = 0;
+
+  arrayOfErrorsFor1.clear();
+  arrayOfErrorsFor2.clear();
+
+  arrayOfCorectnessFor1.clear();
+  arrayOfCorectnessFor2.clear();
+
+  for (int i = 0; i < alphabetButtons.size(); i++)
+    alphabetButtons[i]->setEnabled(true);
+
+  currentPlayer = 1;
+  HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
+
+  gameoverButton->setEnabled(false);
+  nextButton->setEnabled(false);
 }
 
 void GameController::ClickLetter(QString letter) {
@@ -88,10 +125,12 @@ void GameController::ClickLetter(QString letter) {
 
 void GameController::Next() {
   currentPlayer = currentPlayer == 1 ? 2 : 1;
+  MakeActiveAlphabetButtons();
   if (currentPlayer == 1) {
     HiglightLetters(arrayOfCorectnessFor1, arrayOfErrorsFor1);
   } else {
     HiglightLetters(arrayOfCorectnessFor2, arrayOfErrorsFor2);
   }
+  nextButton->setEnabled(false);
   CheckTheChampion();
 }

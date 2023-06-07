@@ -45,12 +45,14 @@ GameWidget::GameWidget() : QWidget() {
   GameController::gameoverButton->setFont(Style::GetBerkshireSwash());
   GameController::gameoverButton->setSizePolicy(QSizePolicy::Fixed,
                                                 QSizePolicy::Fixed);
+  GameController::gameoverButton->setEnabled(false);
 
   GameController::nextButton = new QPushButton("Next");
   GameController::nextButton->setStyleSheet(Style::GetButtonStyle());
   GameController::nextButton->setFont(Style::GetBerkshireSwash());
   GameController::nextButton->setSizePolicy(QSizePolicy::Fixed,
                                             QSizePolicy::Fixed);
+  GameController::nextButton->setEnabled(false);
 
   layoutButtons->addWidget(GameController::gameoverButton);
   layoutButtons->addWidget(GameController::nextButton);
@@ -60,7 +62,10 @@ GameWidget::GameWidget() : QWidget() {
   layout->setAlignment(Qt::AlignCenter);
 
   connect(GameController::gameoverButton, &QPushButton::clicked, this,
-          [=, this]() { emit GoToGameOver(); });
+          [=, this]() {
+            GameController::ResetGame();
+            emit GoToGameOver();
+          });
 
   connect(GameController::nextButton, &QPushButton::clicked, this,
           [=, this]() { emit GameController::Next(); });
