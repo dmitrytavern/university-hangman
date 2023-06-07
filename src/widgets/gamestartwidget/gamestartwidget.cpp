@@ -67,6 +67,8 @@ GameStartWidget::GameStartWidget() : QWidget() {
       GameController::nameOfPlayer2 = editNameOfPlayer2->text();
       GameController::SetUsername();
     }
+    GameController::ShowWord(GameController::arrayOfCorectnessFor1,
+                             GameController::wordForPLayer1);
     emit GoToGame();
   });
 }
