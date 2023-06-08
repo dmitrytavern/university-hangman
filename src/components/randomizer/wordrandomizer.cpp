@@ -7,12 +7,9 @@
 
 #define MAX 100
 
-WordRandomizer::WordRandomizer()
-{
-}
+WordRandomizer::WordRandomizer() {}
 
-void WordRandomizer::ReadFile()
-{
+void WordRandomizer::ReadFile() {
   word_1 = "";
   word_2 = "";
 
@@ -28,20 +25,15 @@ void WordRandomizer::ReadFile()
   int randomNumber_1 = (rand() % MAX) + 1;
   int randomNumber_2 = (rand() % MAX) + 1;
 
-  for (int i = 1; i <= MAX; i++)
-  {
+  for (int i = 1; i <= MAX; i++) {
     line = in.readLine();
-    qDebug() << line;
-    if (i == randomNumber_1)
-    {
+    if (i == randomNumber_1) {
       word_1 = line;
     }
-    if (i == randomNumber_2)
-    {
+    if (i == randomNumber_2) {
       word_2 = line;
     }
-    if (word_1 != "" && word_2 != "")
-    {
+    if (word_1 != "" && word_2 != "") {
       break;
     }
   }

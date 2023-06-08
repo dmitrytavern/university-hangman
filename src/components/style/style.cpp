@@ -2,19 +2,15 @@
 #include <QFontDatabase>
 #include <QStyleOption>
 
-Style::Style()
-{
-}
+Style::Style() {}
 
-QString Style::GetBG()
-{
+QString Style::GetBG() {
   return QString{
       "#mainwindow { border-image: "
       "url(:/resources/BGGameStartWidget.png) 0 0 0 0 stretch stretch; }"};
 }
 
-QString Style::GetButtonStyle()
-{
+QString Style::GetButtonStyle() {
   return QString{"QPushButton {"
                  "width: 250px;"
                  "height: 63px;"
@@ -24,8 +20,7 @@ QString Style::GetButtonStyle()
                  "}"};
 }
 
-QString Style::GetButtonStyleStartAndExit()
-{
+QString Style::GetButtonStyleStartAndExit() {
   return QString{"QPushButton {"
                  "width: 300px;"
                  "height: 85px;"
@@ -36,8 +31,7 @@ QString Style::GetButtonStyleStartAndExit()
                  "}"};
 }
 
-QString Style::GetButtonStyleMiddle()
-{
+QString Style::GetButtonStyleMiddle() {
   return QString{"QPushButton {"
                  "width: 380px;"
                  "height: 85px;"
@@ -48,16 +42,14 @@ QString Style::GetButtonStyleMiddle()
                  "}"};
 }
 
-QString Style::GetTitleStyle()
-{
+QString Style::GetTitleStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 85px;"
                  "}"};
 }
 
-QString Style::GetTitleStyleForHangman()
-{
+QString Style::GetTitleStyleForHangman() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 85px;"
@@ -65,8 +57,7 @@ QString Style::GetTitleStyleForHangman()
                  "}"};
 }
 
-QString Style::GetAboutDevTitleStyle()
-{
+QString Style::GetAboutDevTitleStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 85px;"
@@ -74,8 +65,7 @@ QString Style::GetAboutDevTitleStyle()
                  "}"};
 }
 
-QString Style::GetDevNameStyle()
-{
+QString Style::GetDevNameStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 40px;"
@@ -83,8 +73,7 @@ QString Style::GetDevNameStyle()
                  "}"};
 }
 
-QString Style::GetlRequestStyle()
-{
+QString Style::GetlRequestStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 54px;"
@@ -92,8 +81,7 @@ QString Style::GetlRequestStyle()
                  "}"};
 }
 
-QFont Style::GetBerkshireSwash()
-{
+QFont Style::GetBerkshireSwash() {
   int id = QFontDatabase::addApplicationFont("../resources/"
                                              "BerkshireSwash-Regular.ttf");
   QString font = QFontDatabase::applicationFontFamilies(id).at(0);
@@ -101,8 +89,7 @@ QFont Style::GetBerkshireSwash()
   return BerkshireSwash;
 }
 
-QFont Style::GetMontserrat()
-{
+QFont Style::GetMontserrat() {
   int id =
       QFontDatabase::addApplicationFont("../resources/"
                                         "Montserrat-VariableFont_wght.ttf");
@@ -111,8 +98,7 @@ QFont Style::GetMontserrat()
   return Montserrat;
 }
 
-QString Style::GetEditStyle()
-{
+QString Style::GetEditStyle() {
   return QString{"QLineEdit {"
                  "width: 350px;"
                  "height: 54px;"
@@ -129,8 +115,7 @@ QString Style::GetEditStyle()
                  "}"};
 }
 
-QString Style::GetLetterButtonStyle()
-{
+QString Style::GetLetterButtonStyle() {
   return QString{"QPushButton {"
                  "width: 60px;"
                  "height: 60px;"
@@ -141,8 +126,7 @@ QString Style::GetLetterButtonStyle()
                  "}"};
 }
 
-QString Style::GetCorrectLetterButtonStyle()
-{
+QString Style::GetCorrectLetterButtonStyle() {
   return QString{"QPushButton {"
                  "color: rgba(240, 231, 222, 1);"
                  "width: 60px;"
@@ -153,8 +137,7 @@ QString Style::GetCorrectLetterButtonStyle()
                  "}"};
 }
 
-QString Style::GetWrongLetterButtonStyle()
-{
+QString Style::GetWrongLetterButtonStyle() {
   return QString{"QPushButton {"
                  "width: 60px;"
                  "height: 60px;"
@@ -165,8 +148,7 @@ QString Style::GetWrongLetterButtonStyle()
                  "}"};
 }
 
-QString Style::GetPictureStyle(int i)
-{
+QString Style::GetPictureStyle(int i) {
   return QString{"QLabel {"
                  "min-height: 350px; min-width: 350px; "
                  "image: url(../resources/Hangman_" +
@@ -174,15 +156,13 @@ QString Style::GetPictureStyle(int i)
                  ".svg);"
                  "}"};
 }
-QString Style::GetScullStyle()
-{
+QString Style::GetScullStyle() {
   return QString{"QLabel {"
                  "min-height: 250px; min-width: 250px; "
                  "image: url(../resources/BigScull.svg);"
                  "}"};
 }
-QString Style::GetGameOverButtonStyle()
-{
+QString Style::GetGameOverButtonStyle() {
   return QString{"QPushButton {"
                  "width: 250px;"
                  "height: 63px;"
@@ -191,8 +171,7 @@ QString Style::GetGameOverButtonStyle()
                  "border-radius: 20px;"
                  "}"};
 }
-QString Style::GetWinStyle()
-{
+QString Style::GetWinStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 54px;"
