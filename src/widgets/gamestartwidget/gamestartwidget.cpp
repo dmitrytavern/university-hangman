@@ -1,9 +1,11 @@
 #include "gamestartwidget.h"
 #include "../../components/controller/gamecontroller.h"
+#include "../../components/randomizer/wordrandomizer.h"
 #include "../../components/style/style.h"
 #include <QLineEdit>
 
-GameStartWidget::GameStartWidget() : QWidget() {
+GameStartWidget::GameStartWidget() : QWidget()
+{
   QVBoxLayout *layout = new QVBoxLayout(this);
 
   QVBoxLayout *layoutTitle = new QVBoxLayout(this);
@@ -62,11 +64,13 @@ GameStartWidget::GameStartWidget() : QWidget() {
           [=, this]() { emit GoToHome(); });
 
   connect(gameButton, &QPushButton::clicked, this, [=, this]() {
-    if (editNameOfPlayer1->text().size() && editNameOfPlayer2->text().size()) {
+    if (editNameOfPlayer1->text().size() && editNameOfPlayer2->text().size())
+    {
       GameController::nameOfPlayer1 = editNameOfPlayer1->text();
       GameController::nameOfPlayer2 = editNameOfPlayer2->text();
       GameController::SetUsername();
     }
+    WordRandomizer::ReadFile();
     GameController::ShowWord(GameController::arrayOfCorectnessFor1,
                              GameController::wordForPLayer1);
     emit GoToGame();

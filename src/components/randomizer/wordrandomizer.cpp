@@ -1,5 +1,9 @@
 #include "wordrandomizer.h"
-#include <fstream>
+#include <QDebug>
+#include <QFile>
+#include <QTextStream>
+#include <cstdlib>
+#include <ctime>
 
 #define MAX 100
 
@@ -7,18 +11,39 @@ WordRandomizer::WordRandomizer()
 {
 }
 
-std::string readFile()
+void WordRandomizer::ReadFile()
 {
-  std::ifstream fileWithWords("words-for-hangman.txt");
+  word_1 = "";
+  word_2 = "";
 
-  if (fileWithWords.is_open())
+  QFile words("../resources/words-for-hangman.txt");
+
+  if (!words.open(QIODevice::ReadOnly | QIODevice::Text))
+    qDebug() << "not open";
+
+  QTextStream in(&words);
+  QString line;
+
+  srand(time(NULL));
+  int randomNumber_1 = (rand() % MAX) + 1;
+  int randomNumber_2 = (rand() % MAX) + 1;
+
+  for (int i = 1; i <= MAX; i++)
   {
-    for (int i = 0; i < 100; i++)
+    line = in.readLine();
+    qDebug() << line;
+    if (i == randomNumber_1)
     {
-      std::string str((std::istreambuf_iterator<char>(fileWithWords)),
-                      std::istreambuf_iterator<char>());
-      str >> WordRandomizer::dataWords[i][i];
+      word_1 = line;
     }
-    fileWithWords.close();
+    if (i == randomNumber_2)
+    {
+      word_2 = line;
+    }
+    if (word_1 != "" && word_2 != "")
+    {
+      break;
+    }
   }
+  qDebug() << word_1 << word_2;
 }

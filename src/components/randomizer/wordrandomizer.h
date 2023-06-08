@@ -1,15 +1,15 @@
 #ifndef WORDRANDOMIZER_H
 #define WORDRANDOMIZER_H
-#include <vector>
-#include <string>
+#include <QString>
 
 class WordRandomizer
 {
 public:
     WordRandomizer();
 
-    static std::string readFile();
-    static inline std::string dataWords[10][100];
+    static void ReadFile();
+    static inline QString word_1;
+    static inline QString word_2;
 };
 
 #endif // WORDRANDOMIZER_H
