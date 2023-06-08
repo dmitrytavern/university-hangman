@@ -17,6 +17,7 @@ public:
     static QString GetTitleStyleForHangman();
     static QString GetAboutDevTitleStyle();
     static QString GetDevNameStyle();
+    static QString GetAboutButtonStyle();
     static QString GetlRequestStyle();
     static QString GetEditStyle();
     static QString GetLetterButtonStyle();

@@ -65,11 +65,21 @@ QString Style::GetAboutDevTitleStyle() {
                  "}"};
 }
 
+QString Style::GetAboutButtonStyle() {
+  return QString{"QPushButton {"
+                 "width: 110px;"
+                 "height: 110px;"
+                 "background: none;"
+                 "font-size: 55px;"
+                 "border-radius: 20px;"
+                 "margin-top: 15px;"
+                 "}"};
+}
+
 QString Style::GetDevNameStyle() {
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 40px;"
-                 "margin-top: 10px;"
                  "}"};
 }
 

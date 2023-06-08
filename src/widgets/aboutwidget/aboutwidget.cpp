@@ -52,16 +52,19 @@ AboutWidget::AboutWidget() : QWidget()
 
   layoutDevs->addWidget(devname_5);
 
+  layoutDevs->setSpacing(30);
+
   QVBoxLayout *layoutButton = new QVBoxLayout(this);
-  QPushButton *backButton = new QPushButton("Back");
-  backButton->setStyleSheet(Style::GetButtonStyle());
+  QPushButton *backButton = new QPushButton();
+  backButton->setStyleSheet(Style::GetAboutButtonStyle());
   backButton->setFont(Style::GetBerkshireSwash());
   backButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
   layoutButton->addWidget(backButton);
   layoutButton->setAlignment(Qt::AlignCenter);
-  layoutButton->setContentsMargins(0,35,0,0);
+  layoutButton->setContentsMargins(0,0,890,0);
 
+  layoutDevs->setContentsMargins(0,30,0,0);
 
   layout->addLayout(layoutTilte);
   layout->addLayout(layoutDevs);
