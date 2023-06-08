@@ -84,7 +84,9 @@ GameWidget::GameWidget() : QWidget() {
 
   connect(GameController::gameoverButton, &QPushButton::clicked, this,
           [=, this]() {
+            GameController::DefineChampion();
             GameController::ResetGame();
+            qDebug() << GameController::champion;
             emit GoToGameOver();
           });
 

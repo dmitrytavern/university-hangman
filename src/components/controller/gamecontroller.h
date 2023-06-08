@@ -46,6 +46,8 @@ public:
     static inline QLabel *wordLabel;
     static void ShowWord(std::vector<QString> arrayOfCorectness, QString word);
     static void SetUsername();
+    static inline QLabel *labelNameOfWinner;
+    static void DefineChampion();
 
 public slots:
     static void ClickLetter(QString letter);

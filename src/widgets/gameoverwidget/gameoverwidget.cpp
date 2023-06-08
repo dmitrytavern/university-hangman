@@ -15,10 +15,10 @@ GameOverWidget::GameOverWidget() : QWidget() {
   labelVictory->setFont(Style::GetBerkshireSwash());
   layoutPictureAndLabels->addWidget(labelScull);
 
-  QLabel *labelNameOfWinner = new QLabel(GameController::champion);
-  labelNameOfWinner->setStyleSheet(Style::GetWinStyle());
-  labelNameOfWinner->setAlignment(Qt::AlignCenter);
-  labelNameOfWinner->setFont(Style::GetBerkshireSwash());
+  GameController::labelNameOfWinner = new QLabel(GameController::champion);
+  GameController::labelNameOfWinner->setStyleSheet(Style::GetWinStyle());
+  GameController::labelNameOfWinner->setAlignment(Qt::AlignCenter);
+  GameController::labelNameOfWinner->setFont(Style::GetBerkshireSwash());
 
   QLabel *labelWin = new QLabel("WIN");
   labelWin->setStyleSheet(Style::GetWinStyle());
@@ -28,7 +28,7 @@ GameOverWidget::GameOverWidget() : QWidget() {
   QVBoxLayout *namesLayout = new QVBoxLayout(this);
   namesLayout->addWidget(labelVictory);
   namesLayout->setSpacing(10);
-  namesLayout->addWidget(labelNameOfWinner);
+  namesLayout->addWidget(GameController::labelNameOfWinner);
   namesLayout->setSpacing(10);
   namesLayout->addWidget(labelWin);
   namesLayout->setAlignment(labelWin, Qt::AlignCenter);

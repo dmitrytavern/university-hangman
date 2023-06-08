@@ -54,6 +54,8 @@ void GameController::SetUsername() {
     usernameLabel->setText(nameOfPlayer2);
 }
 
+void GameController::DefineChampion() { labelNameOfWinner->setText(champion); }
+
 void GameController::HiglightLetters(std::vector<QString> arrayOfCorectness,
                                      std::vector<QString> arrayOfErrors) {
 
@@ -108,12 +110,14 @@ void GameController::ToWinGame(int amountOfCorectness, QString word) {
   if (amountOfCorectness == word.size()) {
     champion = currentPlayer == 1 ? nameOfPlayer1 : nameOfPlayer2;
   }
+  DefineChampion();
 }
 
 void GameController::ToLoseGame(std::vector<QString> arrayOfErrors) {
   if (arrayOfErrors.size() == 7) {
     champion = currentPlayer == 1 ? nameOfPlayer2 : nameOfPlayer1;
   }
+  DefineChampion();
 }
 
 void GameController::ResetGame() {
