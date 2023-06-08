@@ -1,4 +1,5 @@
 #include "gamecontroller.h"
+#include "../../components/randomizer/wordrandomizer.h"
 #include "../../components/style/style.h"
 #include <QObject>
 #include <QPushButton>
@@ -123,8 +124,9 @@ void GameController::ToLoseGame(std::vector<QString> arrayOfErrors) {
 void GameController::ResetGame() {
   champion = "null";
 
-  wordForPLayer1 = "QWE";
-  wordForPLayer2 = "ASD";
+  WordRandomizer::ReadFile();
+  wordForPLayer1 = WordRandomizer::word_1;
+  wordForPLayer2 = WordRandomizer::word_2;
 
   amountOfErrorsForPlayer1 = 0;
   amountOfCorectnessForPlayer1 = 0;

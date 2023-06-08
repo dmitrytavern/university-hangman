@@ -14,8 +14,8 @@ public:
     static inline QString champion = "null";
     static inline QString nameOfPlayer1 = "Player 1";
     static inline QString nameOfPlayer2 = "Player 2";;
-    static inline QString wordForPLayer1 = "QQWET";
-    static inline QString wordForPLayer2 = "AS";
+    static inline QString wordForPLayer1;
+    static inline QString wordForPLayer2;
     static inline int amountOfErrorsForPlayer1 = 0;
     static inline int amountOfCorectnessForPlayer1 = 0;
     static inline int amountOfErrorsForPlayer2 = 0;
