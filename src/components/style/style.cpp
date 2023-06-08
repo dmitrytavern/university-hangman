@@ -126,3 +126,25 @@ QString Style::GetPictureStyle(int i) {
                  ".svg);"
                  "}"};
 }
+QString Style::GetScullStyle() {
+  return QString{"QLabel {"
+                 "min-height: 250px; min-width: 250px; "
+                 "image: url(../resources/BigScull.svg);"
+                 "}"};
+}
+QString Style::GetGameOverButtonStyle() {
+  return QString{"QPushButton {"
+                 "width: 250px;"
+                 "height: 63px;"
+                 "background-color: rgba(217, 217, 217, 1);"
+                 "font-size: 45px;"
+                 "border-radius: 20px;"
+                 "}"};
+}
+QString Style::GetWinStyle() {
+  return QString{"QLabel {"
+                 "color: rgba(255, 255, 255, 1);"
+                 "font-size: 54px;"
+                 "margin-top: 10px;"
+                 "}"};
+}

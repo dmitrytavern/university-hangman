@@ -23,6 +23,7 @@ qt_add_resources(Hangman "app_images"
         ../../resources/Hangman_6.svg
         ../../resources/Hangman_7.svg
         ../../resources/Hangman_8.svg
+        ../../resources/BigScull.svg
 )
 
 target_link_libraries(Hangman 

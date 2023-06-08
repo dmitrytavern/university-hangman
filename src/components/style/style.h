@@ -20,6 +20,9 @@ public:
     static QString GetCorrectLetterButtonStyle();
     static QString GetWrongLetterButtonStyle();
     static QString GetPictureStyle(int i);
+    static QString GetScullStyle();
+    static QString GetGameOverButtonStyle();
+    static QString GetWinStyle();
 };
 
 #endif // STYLE_H
