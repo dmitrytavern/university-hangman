@@ -23,6 +23,7 @@ qt_add_resources(Hangman "app_images"
         ../../resources/Hangman_6.svg
         ../../resources/Hangman_7.svg
         ../../resources/Hangman_8.svg
+        ../../resources/words-for-hangman.txt
 )
 
 target_link_libraries(Hangman 
@@ -34,6 +35,7 @@ target_link_libraries(Hangman
   GameOverWidget  
   ComponentStyle
   GameController
+  WordRandomizer
 )
 
 set_target_properties(Hangman PROPERTIES
