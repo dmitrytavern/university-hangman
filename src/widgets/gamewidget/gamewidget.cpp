@@ -86,7 +86,6 @@ GameWidget::GameWidget() : QWidget() {
           [=, this]() {
             GameController::DefineChampion();
             GameController::ResetGame();
-            qDebug() << GameController::champion;
             emit GoToGameOver();
           });
 
