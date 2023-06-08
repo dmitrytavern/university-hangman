@@ -11,7 +11,10 @@ public:
     static QFont GetMontserrat();
     static QString GetBG();
     static QString GetButtonStyle();
+    static QString GetButtonStyleStartAndExit();
+    static QString GetButtonStyleMiddle();
     static QString GetTitleStyle();
+    static QString GetTitleStyleForHangman();
     static QString GetAboutDevTitleStyle();
     static QString GetDevNameStyle();
     static QString GetlRequestStyle();
