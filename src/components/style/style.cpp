@@ -61,7 +61,7 @@ QString Style::GetTitleStyleForHangman()
   return QString{"QLabel {"
                  "color: rgba(255, 255, 255, 1);"
                  "font-size: 85px;"
-                 "margin-bottom: 90px;"
+                 "margin-bottom: 60px;"
                  "}"};
 }
 
