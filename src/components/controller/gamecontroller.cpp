@@ -96,12 +96,15 @@ void GameController::CheckMove(QString letter, QString word,
     alphabetButtons[i]->setEnabled(false);
 
   nextButton->setEnabled(true);
+  nextButton->setStyleSheet(Style::GetButtonStyle());
 }
 
 void GameController::CheckTheChampion() {
   if (champion != "null") {
     gameoverButton->setEnabled(true);
+    gameoverButton->setStyleSheet(Style::GetButtonStyle());
     nextButton->setEnabled(false);
+    nextButton->setStyleSheet(Style::GetButtonStyleDisabled());
     for (int i = 0; i < alphabetButtons.size(); i++)
       alphabetButtons[i]->setEnabled(false);
   }
@@ -150,7 +153,9 @@ void GameController::ResetGame() {
   ShowWord(arrayOfCorectnessFor1, wordForPLayer1);
 
   gameoverButton->setEnabled(false);
+  gameoverButton->setStyleSheet(Style::GetButtonStyleDisabled());
   nextButton->setEnabled(false);
+  nextButton->setStyleSheet(Style::GetButtonStyleDisabled());
 }
 
 void GameController::ClickLetter(QString letter) {
@@ -197,4 +202,5 @@ void GameController::Next() {
   }
   SetUsername();
   nextButton->setEnabled(false);
+  nextButton->setStyleSheet(Style::GetButtonStyleDisabled());
 }
