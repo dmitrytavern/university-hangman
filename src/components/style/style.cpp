@@ -10,8 +10,20 @@ QString Style::GetBG() {
       "url(:/resources/BGGameStartWidget.png) 0 0 0 0 stretch stretch; }"};
 }
 
+QString Style::GetButtonStyleDisabled() {
+  return QString{"QPushButton {"
+                 "color: rgb(120, 120, 120);"
+                 "width: 250px;"
+                 "height: 63px;"
+                 "background-color: rgba(217, 217, 217, 1);"
+                 "font-size: 55px;"
+                 "border-radius: 20px;"
+                 "}"};
+}
+
 QString Style::GetButtonStyle() {
   return QString{"QPushButton {"
+                 "color: rgba(28, 30, 42, 1);"
                  "width: 250px;"
                  "height: 63px;"
                  "background-color: rgba(217, 217, 217, 1);"
@@ -22,6 +34,7 @@ QString Style::GetButtonStyle() {
 
 QString Style::GetButtonStyleStartAndExit() {
   return QString{"QPushButton {"
+                 "color: rgba(28, 30, 42, 1);"
                  "width: 300px;"
                  "height: 85px;"
                  "background-color: rgba(217, 217, 217, 1);"
@@ -33,6 +46,7 @@ QString Style::GetButtonStyleStartAndExit() {
 
 QString Style::GetButtonStyleMiddle() {
   return QString{"QPushButton {"
+                 "color: rgba(28, 30, 42, 1);"
                  "width: 380px;"
                  "height: 85px;"
                  "background-color: rgba(217, 217, 217, 1);"
@@ -164,6 +178,7 @@ QString Style::GetScullStyle() {
 }
 QString Style::GetGameOverButtonStyle() {
   return QString{"QPushButton {"
+                 "color: rgba(28, 30, 42, 1);"
                  "width: 250px;"
                  "height: 63px;"
                  "background-color: rgba(217, 217, 217, 1);"

@@ -61,14 +61,15 @@ GameWidget::GameWidget() : QWidget() {
   QHBoxLayout *layoutButtons = new QHBoxLayout(this);
 
   GameController::gameoverButton = new QPushButton("Finish");
-  GameController::gameoverButton->setStyleSheet(Style::GetButtonStyle());
+  GameController::gameoverButton->setStyleSheet(
+      Style::GetButtonStyleDisabled());
   GameController::gameoverButton->setFont(Style::GetBerkshireSwash());
   GameController::gameoverButton->setSizePolicy(QSizePolicy::Fixed,
                                                 QSizePolicy::Fixed);
   GameController::gameoverButton->setEnabled(false);
 
   GameController::nextButton = new QPushButton("Next");
-  GameController::nextButton->setStyleSheet(Style::GetButtonStyle());
+  GameController::nextButton->setStyleSheet(Style::GetButtonStyleDisabled());
   GameController::nextButton->setFont(Style::GetBerkshireSwash());
   GameController::nextButton->setSizePolicy(QSizePolicy::Fixed,
                                             QSizePolicy::Fixed);

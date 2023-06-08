@@ -26,6 +26,7 @@ public:
     static QString GetScullStyle();
     static QString GetGameOverButtonStyle();
     static QString GetWinStyle();
+    static QString GetButtonStyleDisabled();
 };
 
 #endif // STYLE_H
