@@ -55,14 +55,22 @@ jobs:
           --no-compiler-runtime \
           --no-system-d3d-compiler \
 
-      - name: Compress
+      - name: Move bin
         run: |
-          Compress-Archive -Path ${{ github.workspace }}\bin\${{ env.BUILD_TYPE }}\* -DestinationPath ${{ github.workspace }}\bin\${{ env.BUILD_FILENAME }}.${{ github.ref_name }}.zip
+          Move-Item -Path '${{ github.workspace }}\bin\${{ env.BUILD_TYPE }}\*' -Destination '${{ github.workspace }}\bin\'
+
+      - name: Delete old folders
+        run: |
+          Remove-Item -Path '${{ github.workspace }}\bin\${{ env.BUILD_TYPE }}' -Recurse
+
+      - name: Compress bin
+        run: |
+          Compress-Archive -Path '${{ github.workspace }}\bin','${{ github.workspace }}\resources' -DestinationPath ${{ github.workspace }}\${{ env.BUILD_FILENAME }}.${{ github.ref_name }}.zip
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ github.workspace }}/bin/${{ env.BUILD_FILENAME }}.${{ github.ref_name }}.zip
+          file: ${{ github.workspace }}/${{ env.BUILD_FILENAME }}.${{ github.ref_name }}.zip
           tag: ${{ github.ref }}
           overwrite: false
